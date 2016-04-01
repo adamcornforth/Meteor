@@ -13,6 +13,9 @@ Template.body.onCreated(function bodyOnCreated() {
 	// Good for storing the UI state as ReactiveDict does
 	// not sync with the server like collections do 
 	this.state = new ReactiveDict(); 
+
+	// Subscribe to the 'tasks' publication
+	Meteor.subscribe('tasks'); 
 });
 
 // Helpers are used to pass data into templates
