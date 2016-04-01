@@ -3,6 +3,7 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 import { Tasks } from '../api/tasks.js';
+import { Images } from '../api/images.js';
 
 import './task.js';
 import './body.html';
@@ -31,7 +32,10 @@ Template.body.helpers({
 	},
 	incompleteCount() {
 		return Tasks.find({ checked: { $ne: true } }).count();
-	}
+	},
+	files(){
+      return S3.collection.find();
+  }
 });
 
 // Events can listen for events such as the submit
@@ -57,4 +61,13 @@ Template.body.events({
 	'change .hide-completed input'(event, instance) { 
 		instance.state.set('hideCompleted', event.target.checked);
 	},
+  "change .file_bag": function(){
+    var files = $("input.file_bag")[0].files
+
+    S3.upload({
+            files:files
+        },function(e,r){
+            console.log(r);
+    });
+  },
 });

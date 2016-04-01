@@ -20,6 +20,5 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 reactive-dict
 accounts-ui
 accounts-password
-cfs:standard-packages
-cfs:gridfs
-cfs:filesystem
+lepozepo:s3
+pauldowman:dotenv
