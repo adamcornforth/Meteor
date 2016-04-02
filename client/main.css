@@ -3,16 +3,13 @@ body {
   font-family: sans-serif;
   background-color: #efefef;
   background-attachment: fixed;
-
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
-
   padding: 0;
   margin: 0;
-
   font-size: 14px;
 }
 
@@ -57,7 +54,7 @@ form {
   font-size: 1em;
 }
 
-.new-task input:focus{
+.new-task input:focus {
   outline: 0;
 }
 
@@ -85,6 +82,20 @@ li {
 
 li .text {
   margin-left: 10px;
+}
+
+li .image {
+  height: 150px;
+  display: block;
+  overflow: hidden;
+  text-align: center;
+  margin: 10px 0 0 0;
+  background: #efefef;
+}
+
+li .image img {
+  max-height: 100%; 
+  
 }
 
 li.checked {

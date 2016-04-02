@@ -15,12 +15,9 @@
         <input type="file" class="file_bag">
 
         {{#each files}}
-            <p>{{percent_uploaded}}</p>
-            {{#if loaded}}
-              <div>
-                <a href="{{url}}" target="_blank"><img width='100%' height='auto' src="{{url}}" alt="" class="thumbnail" /></a>
-              </div>
-            {{/if}}
+          {{#if percent_uploaded != 100}}
+            <p>Uploaded: {{percent_uploaded}}</p>
+          {{/if}}
         {{/each}}
 
         <input type="text" name="text" placeholder="Type to add new tasks">

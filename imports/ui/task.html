@@ -17,5 +17,10 @@
     {{/if}}
  
     <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+    {{#if url}}
+      <span class='image'>
+      <a href="{{url}}" target="_blank"><img width='auto' height='100%' src="{{url}}" alt="" class="thumbnail" /></a>
+      </span>
+    {{/if}}
   </li>
 </template>

@@ -45,6 +45,8 @@ Template.body.helpers({
 // information, e.g. event.target is the form element
 Template.body.events({
 	'submit .new-task'(event) {
+    const instance = Template.instance(); 
+
 		// Prevent default browser form submit
 		event.preventDefault();
 
@@ -53,21 +55,42 @@ Template.body.events({
 		const text = target.text.value; 
 
 		// Insert into the tasks collection
-		Meteor.call('tasks.insert', text); 
+		Meteor.call('tasks.insert', text, function(err, _id) {
+      console.log("_id", _id);
+      instance.state.set('_id', _id);
 
-		// Clear form 
-		target.text.value = '';
+  		// Clear form 
+  		target.text.value = '';
+
+      // Get file (if there is one)
+      var files = $("input.file_bag")[0].files
+
+      // If we have a file, upload to S3
+      if(files) {
+
+        // Call the server to check if the S3 .env is configured
+        Meteor.call('images.s3_set', function(err, s3_configured) {
+
+          if(s3_configured) {
+            console.log(instance.state.get('_id')); 
+            // We only want to perform the upload if 
+            // S3 is configured on the server
+            S3.upload({files:files},function(e,r){
+              console.log(r, instance.state.get('_id'));
+
+              // Set the task URL 
+              Meteor.call('tasks.setUrl', instance.state.get('_id'), r.url);
+            });
+          } 
+
+        });
+
+      }
+    }); 
+
+
 	},
 	'change .hide-completed input'(event, instance) { 
 		instance.state.set('hideCompleted', event.target.checked);
 	},
-  "change .file_bag": function(){
-    var files = $("input.file_bag")[0].files
-
-    S3.upload({
-            files:files
-        },function(e,r){
-            console.log(r);
-    });
-  },
 });

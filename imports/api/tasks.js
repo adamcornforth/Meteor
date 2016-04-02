@@ -22,7 +22,7 @@ Meteor.methods({
 
 		if(!Meteor.userId()) throw new Meteor.Error('not-authorised');
 
-		Tasks.insert({
+		return Tasks.insert({
 			text,
 			createdAt: new Date(),
 			owner: Meteor.userId(),
@@ -39,6 +39,18 @@ Meteor.methods({
 	    }
 
 		Tasks.remove(taskId);
+	},
+	'tasks.setUrl'(taskId, url) {
+		check(taskId, String);
+		check(url, String);
+
+		const task = Tasks.findOne(taskId);
+		if (task.private && task.owner !== Meteor.userId()) {
+	      // If the task is private, make sure only the owner can set the image
+	      throw new Meteor.Error('not-authorized');
+	    }
+
+	    Tasks.update(taskId, { $set: { url: url } }); 
 	},
 	'tasks.setChecked'(taskId, setChecked) {
 		check(taskId, String);
