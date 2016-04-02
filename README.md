@@ -60,3 +60,16 @@ You can then simply deploy by pushing to the `heroku` remote.
 ```
 git push heroku master
 ```
+
+## File upload to Amazon S3 
+
+To enable file upload to Amazon S3, you will need to create a dotenv file (`.env`) with the following configuration:
+
+```
+S3_KEY=<your-s3-key>
+S3_SECRET_KEY=<your-s3-secret>
+S3_BUCKET=<your-s3-bucket>
+S3_REGION=<your-s3-region>
+```
+
+You can get your S3 key and secret key from your `(Your Name) -> Security Credentials -> Access Keys` in Amazon AWS. 
