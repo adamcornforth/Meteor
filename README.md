@@ -1,6 +1,10 @@
 # Meteor Todo App
 
-A simple app created by following the Meteor [getting started tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
+Todo app with task ownership and file uploading to Amazon S3. 
+
+Adapted from the Meteor [getting started tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
+
+![Demo](http://i.imgur.com/ncIWP74.gif)
 
 ## Running the App
 
