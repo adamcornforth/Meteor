@@ -22,3 +22,10 @@ accounts-ui
 accounts-password
 lepozepo:s3
 pauldowman:dotenv
+cfs:standard-packages
+cfs:filesystem
+meteorhacks:npm
+iron:router
+
+
+npm-container

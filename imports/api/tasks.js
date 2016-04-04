@@ -17,6 +17,16 @@ if(Meteor.isServer) {
 }
 
 Meteor.methods({
+	'tasks.pi_insert'(text) {
+		check(text, String);
+
+		return Tasks.insert({
+			text,
+			createdAt: new Date(),
+			owner: "pi",
+			username: "Pi",
+		});
+	},
 	'tasks.insert'(text) {
 		check(text, String);
 
