@@ -4,9 +4,9 @@ For use with [adamcornforth/pi-motion-sensor-hue](https://github.com/adamcornfor
 
 Pi Motion detection reporting app with file uploading to Amazon S3. 
 
-Adapted from the Meteor [getting started tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
-
 ![Demo](https://i.imgur.com/h6vj1XG.gif)
+
+Adapted from the Meteor [getting started tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
 ## Installation
 
