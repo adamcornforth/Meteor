@@ -85,7 +85,6 @@ li .text {
 }
 
 li .image {
-  height: 150px;
   display: block;
   overflow: hidden;
   text-align: center;
@@ -94,8 +93,8 @@ li .image {
 }
 
 li .image img {
-  max-height: 100%; 
-  
+  height: auto; 
+  max-width: 100%;  
 }
 
 li.checked {

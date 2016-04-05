@@ -27,5 +27,6 @@ cfs:filesystem
 meteorhacks:npm
 iron:router
 
-
 npm-container
+cfs:s3
+momentjs:moment

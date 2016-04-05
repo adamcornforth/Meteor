@@ -54,6 +54,8 @@ Meteor.methods({
 		check(taskId, String);
 		check(url, String);
 
+		console.log("Url", url);
+
 		const task = Tasks.findOne(taskId);
 		if (task.private && task.owner !== Meteor.userId()) {
 	      // If the task is private, make sure only the owner can set the image

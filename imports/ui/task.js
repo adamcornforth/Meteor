@@ -8,6 +8,12 @@ Template.task.helpers({
   isOwner() {
     return this.owner === Meteor.userId();
   },
+  date() {
+  	return moment(this.createdAt).format('h:mm:ssa MMM Do YYYY')
+  },
+  isMotion() {
+  	return (this.owner == "pi");
+  }
 });
 
 Template.task.events({
