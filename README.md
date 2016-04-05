@@ -1,12 +1,14 @@
-# Meteor Todo App
+# Meteor Pi Motion Detection App
 
-Todo app with task ownership and file uploading to Amazon S3. 
+For use with [adamcornforth/pi-motion-sensor-hue](https://github.com/adamcornforth/pi-motion-sensor-hue).
+
+Pi Motion detection reporting app with file uploading to Amazon S3. 
 
 Adapted from the Meteor [getting started tutorial](https://www.meteor.com/tutorials/blaze/creating-an-app).
 
-![Demo](http://i.imgur.com/ncIWP74.gif)
+![Demo](https://i.imgur.com/h6vj1XG.gif)
 
-## Running the App
+## Installation
 
 To run the app, use:
 
@@ -77,3 +79,16 @@ S3_REGION=<your-s3-region>
 ```
 
 You can get your S3 key and secret key from your `(Your Name) -> Security Credentials -> Access Keys` in Amazon AWS. 
+
+## Uploads via the `/upload` route 
+
+If you post a file to `/upload`, you can add an entry without using a web browser. Example code (Python): 
+
+```
+import requests
+
+files = {'file': open('image.jpg', 'rb')}
+r = requests.post(http://localhost:3000/upload, files=files)
+```
+
+This is the method that is used in my motion detection ([adamcornforth/pi-motion-sensor-hue](https://github.com/adamcornforth/pi-motion-sensor-hue)) Rasperry Pi project.
