@@ -4,8 +4,6 @@
   <li class="{{#if checked}}checked{{/if}} {{#if private}}private{{/if}}">
     <button class="delete">&times;</button>
  
-    <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
     {{#if isOwner}}
       <button class="toggle-private">
         {{#if private}}
@@ -15,13 +13,16 @@
         {{/if}}
       </button>
     {{/if}}
- 
-    {{#if isMotion}}
-      <span class="text">Movement detected at <strong>{{date}}</strong> by <strong>{{username}}</strong></span>
-    {{else}}
-      <span class="text"><strong>{{username}}</strong> - {{text}}</span>
-    {{/if}}
+    
+    <label>
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
 
+      {{#if isMotion}}
+        <span class="text">Motion detected at <strong>{{date}}</strong> by <strong>Raspberry {{username}} 2</strong></span>
+      {{else}}
+        <span class="text"><strong>{{username}}</strong> - {{text}}</span>
+      {{/if}}
+    </label>
     {{#if url}}
       <span class='image'>
       <a href="{{url}}" target="_blank"><img width='auto' height='100%' src="{{url}}" alt="" class="thumbnail" /></a>

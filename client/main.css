@@ -80,10 +80,6 @@ li {
   border-bottom: #eee solid 1px;
 }
 
-li .text {
-  margin-left: 10px;
-}
-
 li .image {
   display: block;
   overflow: hidden;
@@ -95,6 +91,7 @@ li .image {
 li .image img {
   height: auto; 
   max-width: 100%;  
+  max-height: 250px; 
 }
 
 li.checked {
